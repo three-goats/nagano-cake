@@ -5,29 +5,37 @@ Rails.application.routes.draw do
   namespace :members do
     get 'destinations/index'
     get 'destinations/edit'
+    resources :destinations, only: [:index, :edit]
   end
+
   namespace :members do
     get 'orders/index'
     get 'orders/show'
     get 'orders/new'
     get 'orders/confirm'
     get 'orders/success'
+    resources :orders, only: [:index, :show, :new, :confirm, :success]
   end
+  
   namespace :members do
     get 'baskets/index'
+    resources :baskets, only: [:index]
   end
   namespace :members do
     get 'products/index'
     get 'products/show'
+    resources :products, only: [:index, :show]
   end
   namespace :members do
     get 'members/show'
     get 'members/edit'
     get 'members/leave'
+    resources :members, only: [:show, :edit, :leave]
   end
   namespace :members do
     get 'homes/top'
     get 'homes/about'
+    resources :homes, only: [:top, :about]
   end
   namespace :admins do
     get 'members/index'
