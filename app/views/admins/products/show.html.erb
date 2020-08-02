@@ -1,2 +1,37 @@
-<h1>Admins::Products#show</h1>
-<p>Find me in app/views/admins/products/show.html.erb</p>
+<div class="container">
+ <div class="row">
+  <div class="col-xs-4">
+   <p id="notice"><%= flash[:notice] %></p>
+   <h2>商品詳細</h2>
+   <!--  画像投稿機能を入れる -->
+  </div>
+  <div class="col-xs-8">
+  	<table class="table_show">
+  	 <tr>
+  	  <th>商品名</th>
+  	  <td><%= @product.name %></td>
+  	 </tr>
+  	 <tr>
+  	  <th>商品説明</th>
+  	  <td><%= @product.explanation %></td>
+  	 </tr>
+  	 <tr>
+  	  <th>ジャンル</th>
+  	  <td><%= @product.product_type_id %></td>
+  	 </tr>
+  	 <tr>
+  	  <th>税込価格</th>
+  	  <th>(税抜価格)</th>
+  	  <td><%= @product.unit_price * 1.1 %></td>
+  	  <td><%= @product.unit_price %></td>
+  	 </tr>
+  	 <tr>
+  	  <th>販売ステータス</th>
+  	  <td><%= @product.sales_status ? "販売中" : "販売停止中" %></td>
+  	 </tr>
+  	</table>
+  </div>
+  <%= link_to "編集", "admins_products_edit_path(@product.id)", class: "btn btn-default" %>
+ </div>
+
+

@@ -1,62 +1,32 @@
 Rails.application.routes.draw do
+  root 'admins/orders#top'
   namespace :members do
-    get 'destinations/index'
-    get 'destinations/edit'
-  end
-  namespace :members do
-    get 'orders/index'
-    get 'orders/show'
-    get 'orders/new'
-    get 'orders/confirm'
-    get 'orders/success'
-  end
-  namespace :members do
-    get 'baskets/index'
-  end
-  namespace :members do
-    get 'products/index'
-    get 'products/show'
-  end
-  namespace :members do
-    get 'members/show'
-    get 'members/edit'
-    get 'members/leave'
-  end
-  namespace :members do
-    get 'homes/top'
-    get 'homes/about'
-  end
-  namespace :admins do
-    get 'members/index'
-    get 'members/show'
-    get 'members/edit'
-  end
-  namespace :admins do
-    get 'productstypes/index'
-    get 'productstypes/edit'
-  end
-  namespace :admins do
-    get 'products/index'
-    get 'products/new'
-    get 'products/show'
-    get 'products/edit'
-  end
-  namespace :admins do
-    get 'orders/top'
-    get 'orders/index'
-    get 'orders/show'
-  end
-	devise_for :admins, controllers: {
-  		sessions:      'admins/sessions',
-  		passwords:     'admins/passwords',
-  		registrations: 'admins/registrations'
-	}
+    resources :destinations, only: [:index, :edit]
+    resources :orders, only: [:index, :show, :new, :confirm, :success]
+    resources :baskets, only: [:index]
+    resources :products, only: [:index, :show]
+    resources :members, only: [:show, :edit, :leave]
+    resources :homes, only: [:top, :about]
+   end
 
-	devise_for :members, controllers: {
-  		sessions:      'members/sessions',
-  		passwords:     'members/passwords',
-  		registrations: 'members/registrations'
-	}
+  namespace :admins do
+    resources :members, only: [:index, :show, :edit]
+    resources :productstypes, only: [:index, :edit]
+    resources :products, only: [:index, :new, :create, :show, :edit, :update]
+    resources :orders, only: [:index, :show]
+  end
+
+  devise_for :admins, controllers: {
+      sessions:      'admins/sessions',
+      passwords:     'admins/passwords',
+      registrations: 'admins/registrations'
+  }
+
+  devise_for :members, controllers: {
+      sessions:      'members/sessions',
+      passwords:     'members/passwords',
+      registrations: 'members/registrations'
+  }
 
 
 

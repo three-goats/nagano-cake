@@ -1,2 +1,50 @@
-<h1>Admins::Products#edit</h1>
-<p>Find me in app/views/admins/products/edit.html.erb</p>
+<div class="container">
+  <div class="row">
+   <div class="col-xs-10 col-xs-offset-1">
+   	<% if @product.errors.any? %>
+   	<h4 class="error_message">
+   	 記入していない項目があります
+   	</h4>
+   	<div id="error_full_message" class="alert alert-danger">
+   	 <ul>
+   	 	<% @product.errors.full_messages.each do |message| %>
+   	 	<li><%= messsage %></li>
+   	 	<% end %>
+   	 </ul>
+   	</div>
+   	<% end %>
+   	<div class="row">
+   	 <%= form_for @product do |f| %>
+    <div class="col-xs-5">
+     <h2>商品編集</h2>
+   <!--  画像投稿機能を入れる -->
+    </div>
+    <div class="col-xs-5 col-xs-offset-2">
+     <table class="edit_form">
+      <tbody>
+       <tr>
+       	<th>商品名</th>
+       	<td><%= f.text_field :name, class: "form-control" %></td>
+       </tr>
+       <tr>
+       	<th>商品説明</th>
+       	<td><%= f.text_area :explanation, class: "form-control" %></td>
+       </tr>
+       <tr>
+       	<th>ジャンル</th>
+       	<td><% f.collection_select :product_type_id, Products_type.all, :id, :name, include_blank: "--選択してください--" %></td>
+       </tr>
+       <tr>
+        <th>税抜価格</th>
+        <td><% f.text_field :unit_price, class: "form-control" %></td>
+       </tr>
+       <tr>
+       	<th>販売ステータス</th>
+       	<td><%= f.selct :sales_status, [["販売停止中,0"],["販売中,1"]], include_blank: "--選択してください--" %></td>
+       </tr>
+      </tbody>
+     </table>
+     <%= f.submit "変更を保存" class: "btn btn-primary" %>
+    </div>
+    <% end %>
+</div>
