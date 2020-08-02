@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+	root "admins/orders#top"
+
   namespace :members do
     get 'destinations/index'
     get 'destinations/edit'
@@ -42,7 +45,7 @@ Rails.application.routes.draw do
     get 'products/edit'
   end
   namespace :admins do
-    get 'orders/top'
+    # get 'orders/top'
     get 'orders/index'
     get 'orders/show'
   end
