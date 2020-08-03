@@ -8,13 +8,13 @@
    	<div id="error_full_message" class="alert alert-danger">
    	 <ul>
    	 	<% @product.errors.full_messages.each do |message| %>
-   	 	<li><%= messsage %></li>
+   	 	<li><%= message %></li>
    	 	<% end %>
    	 </ul>
    	</div>
    	<% end %>
    	<div class="row">
-   	 <%= form_for(@product, url: admins_products_create_path(@product.id)) do |f| %>
+   	 <%= form_for(@product, url: admins_products_path(@product.id)) do |f| %>
     <div class="col-xs-5">
      <h2>商品登録画面</h2>
    <!--  画像投稿機能を入れる -->
@@ -32,11 +32,11 @@
        </tr>
        <tr>
        	<th>ジャンル</th>
-       	<td><% f.collection_select :product_type_id, ProductsType.all, :id, :name, include_blank: "--選択してください--" %></td>
+       	<td><%= f.collection_select :product_type_id, ProductsType.all, :id, :name, include_blank: "--選択してください--" %></td>
        </tr>
        <tr>
         <th>税抜価格</th>
-        <td><% f.text_field :unit_price, class: "form-control" %></td>
+        <td><%= f.text_field :unit_price, class: "form-control" %><p>円</p></td>
        </tr>
        <tr>
        	<th>販売ステータス</th>
