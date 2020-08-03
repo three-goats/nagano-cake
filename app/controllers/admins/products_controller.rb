@@ -13,7 +13,7 @@ class Admins::ProductsController < ApplicationController
   	   flash[:notice] = "Product was successfully created"
   	   redirect_to admins_products_show_path(@product.id)
   	else
-  	   @products = Products.all
+
   	   render :new
   	end
   end
