@@ -13,11 +13,13 @@ class Admins::ProductsController < ApplicationController
   	   flash[:notice] = "Product was successfully created"
   	   redirect_to admins_products_show_path(@product.id)
   	else
+
   	   render :new
   	end
   end
 
   def show
+  	@product = Product.find(params[:id])
   end
 
   def edit

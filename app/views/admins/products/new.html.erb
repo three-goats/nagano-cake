@@ -8,12 +8,14 @@
    	<div id="error_full_message" class="alert alert-danger">
    	 <ul>
    	 	<% @product.errors.full_messages.each do |message| %>
+
    	 	<li><%= message %></li>
    	 	<% end %>
    	 </ul>
    	</div>
    	<% end %>
    	<div class="row">
+
    	 <%= form_for(@product, url: admins_products_path(@product.id)) do |f| %>
     <div class="col-xs-5">
      <h2>商品登録画面</h2>
@@ -32,6 +34,7 @@
        </tr>
        <tr>
        	<th>ジャンル</th>
+
        	<td><%= f.collection_select :product_type_id, ProductsType.all, :id, :name, include_blank: "--選択してください--" %></td>
        </tr>
        <tr>
