@@ -8,21 +8,25 @@ Rails.application.routes.draw do
     resources :members, only: [:show, :edit, :leave]
     resources :homes, only: [:top, :about]
    end
+
   namespace :admins do
     resources :members, only: [:index, :show, :edit]
     resources :productstypes, only: [:index, :edit]
     resources :products, only: [:index, :new, :create, :show, :edit, :update]
     resources :orders, only: [:index, :show]
   end
+
   devise_for :admins, controllers: {
       sessions:      'admins/sessions',
       passwords:     'admins/passwords',
       registrations: 'admins/registrations'
   }
+
   devise_for :members, controllers: {
       sessions:      'members/sessions',
       passwords:     'members/passwords',
       registrations: 'members/registrations'
   }
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
