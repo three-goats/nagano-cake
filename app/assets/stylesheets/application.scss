@@ -20,3 +20,14 @@
 body {
  padding-top: 70px;
 }
+/*members/homes/top での右側下の要素を浮かす*/
+.members_orders_top_image {
+  display: inline-block;
+}
+/*members/homes/top でのmain_visual_contect*/
+.main-visual-content {
+	width: 80%;
+	height: 300px;
+	background-image: url(asia.jpg);
+	background-size: cover;
+}
