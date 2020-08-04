@@ -1,2 +1,65 @@
-<h1>Admins::Orders#show</h1>
-<p>Find me in app/views/admins/orders/show.html.erb</p>
+<h2>注文履歴詳細</h2>
+<div>
+	<table>
+		<tr>
+			<td>購入者</td>
+			<td>UserName</td>
+		</tr>
+		<tr>
+			<td>配送先</td>
+			<td>Address</td>
+		</tr>
+		<tr>
+			<td>支払い方法</td>
+			<td>Payment</td>
+		</tr>
+		<tr>
+			<td>注文ステータス</td>
+			<td>Status</td>
+			<td>更新ボタン</td>
+		</tr>
+	</table>
+
+	<br>
+
+	<table>
+		<thead>
+			<tr>
+				<th>商品名</th>
+				<th>単価(税込)</th>
+				<th>数量</th>
+				<th>小計</th>
+				<th>制作ステータス</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- % .each do || % -->
+			<tr>
+				<td>productName</td>
+				<td>tanka</td>
+				<td>num</td>
+				<td>price</td>
+				<td><%= select :oder_status, :name, Order.order_statuses.keys.to_a%></td>
+				<td>更新ボタン</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<br>
+
+	<table>
+		<tr>
+			<td>商品合計</td>
+			<td>yen</td>
+		</tr>
+		<tr>
+			<td>送料</td>
+			<td>yen</td>
+		</tr>
+		<tr>
+			<td>請求金額合計</td>
+			<td>yen</td>
+		</tr>
+	</table>
+</div>
