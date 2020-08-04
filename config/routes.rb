@@ -15,10 +15,10 @@ Rails.application.routes.draw do
 
   namespace :admins do
     resources :members, only: [:index, :show, :edit]
-    resources :productstypes, only: [:index, :edit]
+    resources :productstypes, only: [:index, :edit, :create, :update]
     resources :products, only: [:index, :new, :create, :show, :edit, :update]
     resources :orders, only: [:index, :show]
-    get 'orders/top' => 'orders#top', as:'orders_about'
+    get 'orders/top' => 'orders#top', as:'orders_top'
 
   end
 
