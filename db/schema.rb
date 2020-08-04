@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2020_08_01_121709) do
     t.text "explanation"
     t.string "image_id"
     t.string "sales_status"
-    t.string "product_type_id"
+    t.string "products_type_id"
     t.integer "unit_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
