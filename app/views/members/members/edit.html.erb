@@ -1,2 +1,60 @@
-<h1>Members::Members#edit</h1>
+<p>Members::Members#edit</p>
 <p>Find me in app/views/members/members/edit.html.erb</p>
+
+<div class="container">
+	<div class="row">
+		
+		<div class="col-md-7 col-md-offset-1">
+			<h3>登録情報編集</h3>
+		</div>
+		<!-- col-md-1 -->
+		<div class="col-md-7">
+			<table class="table">
+				<thead>
+					<tr>
+						<td>名前</td>
+						<td>(性)</td><td>[入力フォーム]</td>
+						<td>(名)</td><td>[入力フォーム]</td>
+					</tr>
+					<tr>
+						<td>フリガナ</td>
+						<td>(セイ)</td><td>[入力フォーム]</td>
+						<td>(メイ)</td><td>[入力フォーム]</td>
+					</tr>
+					<tr>
+						<td>メールアドレス</td><td>[入力フォーム]</td>
+					</tr>
+					<tr>
+						<td>郵便番号(ハイフンなし)</td><td>[入力フォーム]</td>
+					</tr>
+					<tr>
+						<td>住所</td><td>[入力フォーム]</td>
+					</tr>
+					<tr>
+						<td>電話番号(ハイフンなし)</td><td>[入力フォーム]</td>
+					</tr>
+				</thead>
+			</table>
+		</div>
+		<!-- col-md-7 -->
+	</div>
+
+	<!-- row -->
+	<div class="row">
+		<div class="col-md-7">
+			<p>  </p>
+		</div>
+	</div>
+	<!-- row -->
+	<div class="row">
+		<div class="col-md-3 col-md-offset-2">
+			<%= link_to "編集内容を保存する", class: "btn btn-primary" %>
+		</div>
+		<div class="col-md-2 col-md-offset-1">
+			<%= link_to "退会する", members_members_leave_path, class: "btn btn-danger" %>
+<!-- 退会ページのルートにはidが必要だが今は扱えないのでこのまま -->
+		</div>
+	</div>
+	<!-- row -->
+</div>
+<!-- container -->
