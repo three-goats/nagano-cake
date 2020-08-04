@@ -59,7 +59,7 @@
               <tr>
                 <td>
                   <div class="actions">
-                     <%= f.submit "Sign up" %>
+                     <%= f.submit "新規登録", class: "btn btn-success" %>
                   </div>
                 </td>
               </tr>
@@ -75,7 +75,7 @@
     <!-- 既に登録ずみ -->
     <div class="col-md-4 col-md-offset-2">
       <h4>既に登録済みの方</h4>
-      <p>既に</p>
+      <p><%= link_to "こちら", new_member_session_path %>  からログインしてください。</p>
     </div>
   </div>
 </div>
