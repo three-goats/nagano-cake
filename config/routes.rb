@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get 'orders/success' => 'orders#success', as: 'orders_success'
     resources :baskets, only: [:index]
     resources :products, only: [:index, :show]
-    resources :members, only: [:show, :edit]
+    resources :members, only: [:show, :edit, :update]
     get 'members/leave' => 'members#leave', as: 'members_leave'
     get 'homes/about' => 'homes#about', as:'homes_about'
    end
