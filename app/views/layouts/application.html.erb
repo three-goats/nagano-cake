@@ -24,7 +24,11 @@
               </button>
               <!-- ここは右側のlogoの部分　　あとで外枠などを作る-->
               <!-- リンクもまだ作って無い -->
-              <a class="navbar-brand" href="#">LOGO</a>
+              <% if member_signed_in? %>
+                <a class="navbar-brand" href="/">LOGO</a>
+              <% else %>
+                <p class="navbar-brand" href="#">LOGO</p>
+              <% end %>
               <!--  -->
             </div>
 
@@ -37,21 +41,25 @@
                 <% if admin_signed_in? %>
 
                   <li>
-                    <%= link_to "商品一覧" %>
+                      <a >管理者: <%= current_admin.email %>さん</a>
                   </li>
 
                   <li>
-                    <%= link_to "会員一覧" %>
+                    <%= link_to "商品一覧", admins_products_path %>
+                  </li>
+
+                  <li>
+                    <%= link_to "会員一覧", admins_members_path %>
                     <!-- app詳細設計で記載した　admins/membersになっていない -->
                   </li>
 
                   <li>
-                    <%= link_to "注文履歴一覧" %>
+                    <%= link_to "注文履歴一覧", admins_orders_path %>
                     <!-- app詳細設計で記載した　admins/ordersになっていない -->
                   </li>
 
                   <li>
-                    <%= link_to "ジャンル一覧" %>
+                    <%= link_to "ジャンル一覧", admins_productstypes_path %>
                     <!-- app詳細設計で記載した　admins/productsになっていない -->
                   </li>
 
@@ -66,21 +74,21 @@
                   <% if member_signed_in? %>
                 <!-- members/ユーザーがログインしている時-->
                     <li>
-                      <p>ようそこ、###さん！</p>
-                      <!-- レイアウト少しおかしいがこれでせ -->
+                      <a >ようこそ、<%= current_member.last_name %><%= current_member.first_name %>さん！</a>
+      <!-- レイアウト少しおかしいがこれでせ -->
                     </li>
 
                     <li>
-                      <%= link_to "マイページ" %>
+                      <%= link_to "マイページ", members_member_path(current_member) %>
                       <!-- app詳細設計で記載した　admins/membersになっていない -->
                     </li>
 
                   <li>
-                    <%= link_to "商品一覧" %>
+                    <%= link_to "商品一覧", members_products_path %>
                   </li>
 
                   <li>
-                    <%= link_to "カート" %>
+                    <%= link_to "カート", members_baskets_path %>
                     <!-- app詳細設計で記載した　admins/ordersになっていない -->
                   </li>
 
@@ -92,17 +100,16 @@
                 <!-- members/ユーザがログインしていない時 -->
 
                   <li>
-                    <%= link_to "About" %>
+                    <%= link_to "About", members_homes_about_path %>
       <!-- ECサイトのaboutページへ　まだ作ってい無い -->
-
                   </li>
 
                   <li>
-                    <%= link_to "商品一覧" %>
+                    <%= link_to "商品一覧", members_products_path %>
                   </li>
 
                   <li>
-                    <%= link_to "新規登録" %>
+                    <%= link_to "新規登録", new_member_registration_path %>
                     <!-- 管理者側新規登録ページへ -->
                   </li>
 
