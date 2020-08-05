@@ -1,2 +1,24 @@
-<h1>Members::Products#show</h1>
-<p>Find me in app/views/members/products/show.html.erb</p>
+<div class="container">
+ <div class="row">
+  <div class="col-xs-2">
+  	<%= render 'members/products/type_serch', types: @types %>
+  </div>
+  <div class="col-xs-5 product_image">
+  	<!-- 画像投稿機能 -->
+  </div>
+  <div class="col-xs-5 product_contents">
+  	<h2><%= @product.name %></h2>
+  	<p><%= @product.explanation %></p>
+  	<p><%= (@product.unit_price * 1.1).round.to_s(:delimited, delimiter: ',') %></p><P>(税込)</P>
+  	<%= form_for(@basket_product, url: members_baskets_path) do |f| %>
+  	 <%= f.select :count,(1..10).to_a, {}, class: "form-control members-show-form-control" %>
+  	 <%= f.hidden_field :product_id, :value => @product.id %>
+  	 <% if @product.sales_status == "true" %>
+  	  <%= f.submit "カートに入れる" %>
+  	 <% else %>
+  	  <%= f.submit "売り切れ" %>
+  	 <% end %>
+  	<% end %>
+  </div>
+ </div>
+</div>
