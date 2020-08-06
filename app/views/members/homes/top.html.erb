@@ -1,2 +1,52 @@
 <h1>Members::Homes#top</h1>
 <p>Find me in app/views/members/homes/top.html.erb</p>
+<div class="container">
+	
+	<div class="row">
+		
+		<div class="col-md-3">
+			
+			<p>ジャンル検索 form_forを用いてindexページで</p>
+		</div>
+
+		<div class="col-md-9">
+
+			<div class="main-visual-content">
+				
+			</div>
+			
+
+			<h3>オススメ商品</h3>
+			<div class="members_orders_top_image">
+				<%= image_tag "asia.jpg", size: "200x100" %>
+				<p>商品名</p>
+				<p>¥1.000</p>
+			</div>
+
+			<div class="members_orders_top_image">
+				<%= image_tag "asia.jpg", size: "200x100" %>
+				<p>商品名</p>
+				<p>¥1.000</p>
+			</div>
+
+			<div class="members_orders_top_image">
+				<%= image_tag "asia.jpg", size: "200x100" %>
+				<p>商品名</p>
+				<p>¥1.000</p>
+			</div>
+
+			<div class="members_orders_top_image">
+				<%= image_tag "asia.jpg", size: "200x100" %>
+				<p>商品名</p>
+				<p>¥1.000</p>
+			</div>
+		</div>
+		<!--col-md-3  -->
+		<div class="col-md-2 col-md-offset-10">
+			<p><%= link_to "もっと見る>", members_products_path %></p>
+			<!-- members/products/indecへ -->
+		</div>
+	</div>
+	<!-- row -->
+</div>
+<!-- container -->

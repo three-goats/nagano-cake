@@ -35,7 +35,7 @@
        <tr>
        	<th>ジャンル</th>
 
-       	<td><%= f.collection_select :products_type_id, ProductsType.all, :id, :type_name, include_blank: "--選択してください--" %></td>
+       	<td><%= f.collection_select :product_type_id, ProductsType.all, :id, :type_name, include_blank: "--選択してください--" %></td>
        </tr>
        <tr>
         <th>税抜価格</th>
