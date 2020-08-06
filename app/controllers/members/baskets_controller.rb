@@ -43,5 +43,6 @@ class Members::BasketsController < ApplicationController
 
   private
   def order_product_params
-  	params.require(:order_product)
+  	params.require(:order_product).permit(:order_id, :products_id, :price_at_purchase, :quantity_purchased)
+  end
 end
