@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root 'members/homes#top'
 
   namespace :members do
-    resources :destinations, only: [:index, :edit]
-    resources :orders, only: [:index, :show, :new]
+    resources :destinations, only: [:index, :edit, :create, :update, :destroy]
+    resources :orders, only: [:index, :show, :new, :create]
     post 'orders/confirm' => 'orders#confirm', as: 'orders_confirm'
     get 'orders/success' => 'orders#success', as: 'orders_success'
     resources :baskets, only: [:index]
