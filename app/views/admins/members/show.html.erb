@@ -17,7 +17,13 @@
         <table>
           <tbody>
             <tr>
-              <th>顧客ID</th><th><span class="label label-info"><%= @member.member_status %></span></th>
+              <th>顧客ID</th>
+                <% if @member.member_status == true %>
+                  <th>有効会員</th>
+                <% else %>
+                  <th>無効</th>
+                <% end %>
+                
             </tr>
             <tr>
               <th>
