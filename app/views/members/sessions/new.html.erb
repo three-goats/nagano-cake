@@ -1,129 +1,51 @@
 <div class="container">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-6">
         <h1>  </h1>
       </div>
     </div>
     <!-- row -->
 
     <div class="row">
-      <div class="col-md-">
-        
+      <div class="col-md-7 col-md-offset-1">
+        <h4>会員の方はこちらからログイン</h4>
       </div>
-
     </div>
 
-
-</div>
-
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
-    </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
-
-<%= render "members/shared/links" %>
-
-
-
-<div class="container">
-
-
-  <div class="row">
-
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-      <div class="col-md-6 col-md-offset-3">
-
-        <h3>管理者ログイン</h3>
-
-      </div>
-
-      <div class="col-md-6 col-md-offset-3">
-
-        <h3>   </h3>
-
-      </div>
-      <!-- col-md-6 col-md-offset-3 -->
-
-      <div class="col-md-8 col-md-offset-4">
-
-        <table>
-          <!--  <caption>table title and/or explanatory text</caption> -->
-          <thead>
-
-            <tr>
-            <!-- 一行目 -->
-              <th>
-                  <%= f.label :メールアドレス %>
-              </th>
-
-              <th>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-md-offset-2" %>
-              </th>
-            </tr>
-            <!-- 一行目 -->
-
-            <tr>
-              <!-- 空白 -->
-              <th>
-                <p>  </p>
-              </th>
-            </tr>
-
-            <tr>
-            <!-- 二行目 -->
-              <th>
-                  <%= f.label :パスワード %>
-              </th>
-              <th>
-                <%= f.password_field :password, autocomplete: "current-password", class: "col-md-offset-2" %>
-              </th>
-            </tr>
-            <!-- 二行目 -->
-          </thead>
-        </table>
-
-      </div>
-      <!-- col-md-5 col-md-offset-4  -->
-
-      <div class="col-md-6 col-md-offset-3">
-
-        <h1>   </h1>
-
-      </div>
-
-      <div class="col-md-5 col-md-offset-6">
-
-        <div class="actions">
-          <%= f.submit "ログイン", class: "btn btn-primary col-md-4"  %>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <div>
+           <%= f.label :email, "メールアドレス" %>
+           <%= f.text_field :email, autofocus: true, autocomplete: "email" %>
         </div>
-
+        <div>
+          <%= f.label :password, "パスワード" %>
+          <%= f.password_field :password, autocomplete: "current-password" %>
+        </div>
+        <div>
+          <%= link_to "=>パスワードを忘れた方はこちら", edit_member_registration_path %>
+        </div>
+        <div class="actions">
+          <%= f.submit "ログイン", class: "btn btn-primary" %>
+        </div>
       </div>
-      <!-- col-md-3 col-md-offset-5" -->
-    <% end %>
-    <!-- form_for -->
+      <!-- col-md- -->
+    </div>
+    <!-- row -->
 
-  </div>
-  <!-- row -->
+    <div class="row">
+      <div class="col-md-7 col-md-offset-1">
+        <h4>登録がお済みでない方</h4>
+      </div>
+    </div>
+    <!-- row -->
+
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <p><%= link_to "こちら", new_member_registration_path %>  から新規登録を行ってください。</p>
+      </div>
+    </div>
+
+  <% end %>
 </div>
-<!-- container -->
