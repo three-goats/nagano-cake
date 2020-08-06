@@ -1,6 +1,10 @@
 class Members::BasketsController < ApplicationController
   def index
-  	@order_products = OrderProduct.where(member_id)
+  	@order_products = OrderProduct.all
+    @total_price = 0
+    @order_products.each do |order_product|
+     @total_price = order_product.unit_price * order_product.quantity_purchased * 1.1
+    end
   end
 
   def create
@@ -43,5 +47,7 @@ class Members::BasketsController < ApplicationController
 
   private
   def order_product_params
-  	params.require(:order_product)
+    params.require(:product).permit(:order_id, :products_id, :production_status, :price_at_purchase, :quantity_purchased)
+  end
+
 end

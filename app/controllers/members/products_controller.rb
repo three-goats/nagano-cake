@@ -1,19 +1,14 @@
 class Members::ProductsController < ApplicationController
   def index
-  	@products = Product.where(validation: true)
+  	@products = Product.where
   	@quantity = Product.count
-  	@types = ProductsType.where(validation: true)
+  	# @types = ProductsType.where
   end
 
   def show
-  	@product = Product.find(products_params[:id])
+  	@product = Product.find(params[:id])
   	@order_product =OrderProduct.new
-  	@types = ProductsType.where(validation: true)
-  end
-
-  private
-  def products_params
-  	params.require(:product).permit(:name, :explanation, :sales_status, :product_type_id, :unit_price)
+  	# @types = ProductsType.where
   end
 end
 
