@@ -1,2 +1,24 @@
-<h1>Members::Products#index</h1>
-<p>Find me in app/views/members/products/index.html.erb</p>
+<div class="container">
+ <div class="row">
+  <div class="col-xs-2">
+  	<%= render 'members/products/type_serch', types: @types %>
+  </div>
+  <div class="col-xs-10">
+   <h3>商品一覧</h3>
+   <%= @products.each do |product| %>
+    <div class="col-xs-3">
+      <!-- 画像投稿機能 -->
+      <%= product.name %>
+      <% if product.validation == true %>
+       <%= product.unit_price %><p>円</p>
+      <% end %>
+      <% if product.validation == true %>
+       <p>販売中</p>
+      <% else %>
+       <p>売切れ</p>
+      <% end %>
+    </div>
+   <% end %>
+  </div>
+ </div>
+</div>
