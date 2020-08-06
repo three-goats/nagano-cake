@@ -8,6 +8,7 @@ class Members::OrdersController < ApplicationController
   def new
     @order_new = Order.new
     @members = Member.all
+    @dest = Destination.new
   end
 
   def create

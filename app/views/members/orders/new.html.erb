@@ -30,12 +30,13 @@
 					<td>
 						<%= f.radio_button :address_option, 0 %>
 						<%= f.label :ご自身の住所, class: "display: inline-block;" %>
-						<%= current_member.post_number + current_member.address + current_member.last_name + current_member.first_name %>
+						<%= "#{current_member.post_number} #{current_member.address} #{current_member.last_name}#{current_member.first_name}" %>
 					</td>
 				<tr>
 					<td>
 						<%= f.radio_button :address_option, 1 %>
 						<%= f.label :登録済住所から選択, class: "display: inline-block;" %>
+						<%= f.select :id , Destination.all.map {|e| [e.full_address, e.id] } %>
 					</td>
 				</tr>
 				<tr>
@@ -46,7 +47,17 @@
 				</tr>
 				<tr>
 					<td>
-						<% f.submit "確認画面へ進む" %>
+						<%= f.label :post_address, "郵便番号" %>
+						<%= f.text_field :post_address %>
+						<%= f.label :post_address, "住所" %>
+						<%= f.text_field :post_address %>
+						<%= f.label :post_address, "宛名" %>
+						<%= f.text_field :post_address %>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<%= f.submit "確認画面へ進む" %>
 					</td>
 				</tr>
 			</tbody>
