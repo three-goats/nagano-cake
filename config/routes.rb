@@ -7,7 +7,8 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :new, :create]
     post 'orders/confirm' => 'orders#confirm', as: 'orders_confirm'
     get 'orders/success' => 'orders#success', as: 'orders_success'
-    resources :baskets, only: [:index]
+    delete 'baskets/alldestroy' => 'baskets#alldestroy', as: 'baskets_alldestroy'
+    resources :baskets, only: [:index, :create, :update, :destroy]
     resources :products, only: [:index, :show]
     resources :members, only: [:show, :edit, :update]
     get 'members/leave' => 'members#leave', as: 'members_leave'
