@@ -16,4 +16,4 @@ class Members::ProductsController < ApplicationController
   	params.require(:product).permit(:name, :explanation, :sales_status, :product_type_id, :unit_price)
   end
 end
-end
+
