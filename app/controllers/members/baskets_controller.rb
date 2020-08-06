@@ -40,4 +40,8 @@ class Members::BasketsController < ApplicationController
   		render :index, danger: "全商品の削除ができませんでした。"
   	end
   end
+
+  private
+  def order_product_params
+  	params.require(:order_product)
 end
