@@ -1,11 +1,15 @@
 class Members::ProductsController < ApplicationController
   def index
+  	@products = Product.where(validation: true)
+  	@quantity = Product.count
+  	@types = ProductsType.where(validation: true)
   end
 
   def show
   	@product = Product.find(params[:id])
-  	@types = ProductsType.all
-  	# 仮
-  	@basket_product = Product.new
+  	@order_product =OrderProduct.new
+  	@types = ProductsType.where(validation: true)
   end
+
+  
 end
