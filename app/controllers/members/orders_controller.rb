@@ -24,7 +24,7 @@ class Members::OrdersController < ApplicationController
       @address = @destination.address
       @name = @destination.full_name
     else params[:address_option] == 2
-      @new_destination = Destination.new
+      @new_destination = Destination.new(dest_params)
     end
 
   end
@@ -37,6 +37,6 @@ class Members::OrdersController < ApplicationController
 
   private
   def oder_params
-    params.require(:order)
+    params.require(:order).permit(:id, :payment_method, :post_address, :address, :full_name)
   end
 end
