@@ -4,4 +4,5 @@ class Product < ApplicationRecord
 
 	belongs_to :products_type, optional: true
 	has_many :order_products
+
 end
