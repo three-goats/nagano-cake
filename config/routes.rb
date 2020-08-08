@@ -10,9 +10,10 @@ Rails.application.routes.draw do
     delete 'baskets/alldestroy' => 'baskets#alldestroy', as: 'baskets_alldestroy'
     resources :baskets, only: [:index, :create, :update, :destroy]
     resources :products, only: [:index, :show]
-    resources :members, only: [:show, :edit, :update]
     get 'members/leave' => 'members#leave', as: 'members_leave'
     get 'homes/about' => 'homes#about', as:'homes_about'
+    patch "members" => "members#destroy_update"
+    resources :members, only: [:show, :edit, :update]
    end
 
   namespace :admins do

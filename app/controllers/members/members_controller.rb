@@ -18,6 +18,13 @@ class Members::MembersController < ApplicationController
   end
 
   def leave
+    @member = Member.find(current_member.id)
+  end
+
+  def destroy_update
+    member = Member.find(current_member.id)
+    member.update(member_status: true)
+    redirect_to root_path
   end
 
   # 追加しました[member/members/:id/edit_update]＿りのじ ストロングパラメーター
