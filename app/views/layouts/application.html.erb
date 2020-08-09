@@ -21,10 +21,10 @@
               </button>
               <!-- ここは右側のlogoの部分　　あとで外枠などを作る-->
               <!-- リンクもまだ作って無い -->
-              <% if member_signed_in? %>
-                <a class="navbar-brand" href="/">LOGO</a>
+              <% if admin_signed_in? %>
+                <p class="navbar-brand">LOGO</p>
               <% else %>
-                <p class="navbar-brand" href="#">LOGO</p>
+                <a class="navbar-brand" href="/">LOGO</a>
               <% end %>
               <!--  -->
             </div>
@@ -37,7 +37,7 @@
                 <!-- ユーザーがログインしている時-->
                 <% if admin_signed_in? %>
                   <li>
-                      <a >管理者: <%= current_admin.email %>さん</a>
+                      <a>管理者: <%= current_admin.email %>さん</a>
                   </li>
                   <li>
                     <%= link_to "商品一覧", admins_products_path %>
