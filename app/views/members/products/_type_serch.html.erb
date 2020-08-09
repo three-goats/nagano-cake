@@ -9,7 +9,7 @@
   	<% types.each do |type| %>
   	 <tr>
   	  <td scope="row" class="borderless">
-  	   <%= link_to "#{type.type_name}",members_products_path, product_type_id: type.id %></td>
+  	   <%= link_to "#{type.type_name}",members_products_path( params: {products_type_id: type.id }), :method => :get %></td>
   	 </tr>
   	 <% end %>
   </tbody>

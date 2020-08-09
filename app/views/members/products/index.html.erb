@@ -5,14 +5,14 @@
   </div>
   <div class="col-xs-10">
    <h3>商品一覧<span> (全<%= @quantity %>件) </span></h3>
-   <%= @products.each do |product| %>
+   <% @products.each do |product| %>
     <div class="col-xs-3">
       <!-- 画像投稿機能 -->
       <%= product.name %>
-      <% if product.validation == true %>
+      <% if product %>
        <%= product.unit_price %><p>円</p>
       <% end %>
-      <% if product.validation == true %>
+      <% if product %>
        <p>販売中</p>
       <% else %>
        <p>売切れ</p>
