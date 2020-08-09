@@ -31,7 +31,7 @@
         <p></p><%= f.attachment_field :image %>
       </div>
 
-      <div class="col-md-5 col-md-offset-4">
+      <div class="col-md-5 col-md-offset-1">
         <table class="new_form">
           <tbody>
             <tr>
@@ -50,7 +50,7 @@
             </tr>
        
             <tr>
-              <th>税抜価格</th>
+              <td>税抜価格</th>
               <td><%= f.text_field :unit_price, class: "form-control" %><p>円</p></td>
             </tr>
        
@@ -66,7 +66,7 @@
     <!-- row -->
 
     <div class="row">
-      <div class="col-md-2 col-md-10">
+      <div class="col-md-2 col-md-offset-10">
         <%= f.submit "新規登録", class: "btn btn-primary" %>
       </div>
     </div>

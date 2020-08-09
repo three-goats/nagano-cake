@@ -7,5 +7,5 @@ class Order < ApplicationRecord
 		発送済み: 4
 	}
 
-	has many :order_products
+	has_many :order_products
 end

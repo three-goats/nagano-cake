@@ -4,6 +4,7 @@ class Admins::OrdersController < ApplicationController
   end
 
   def index
+  		@order = "仮の値です"
   end
 
   def show
