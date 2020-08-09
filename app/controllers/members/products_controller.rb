@@ -7,7 +7,7 @@ class Members::ProductsController < ApplicationController
 
   def show
   	@product = Product.find(params[:id])
-  	@order_product = OrderProduct.new
+  	@basket_product = BasketProduct.new
   	@types = ProductsType.all
   end
 end
