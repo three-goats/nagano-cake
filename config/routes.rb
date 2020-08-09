@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   namespace :members do
     resources :destinations, only: [:index, :edit, :create, :update]
-    resources :orders, only: [:index, :show, :new, :create]
     post 'orders/confirm' => 'orders#confirm', as: 'orders_confirm'
     get 'orders/success' => 'orders#success', as: 'orders_success'
+    resources :orders, only: [:index, :show, :new, :create]
     resources :baskets, only: [:index]
     resources :products, only: [:index, :show]
     resources :members, only: [:show, :edit]
