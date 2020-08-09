@@ -24,7 +24,7 @@
          	    <td><%= product.id %></td>
          	    <td><%= link_to product.name, admins_product_path(product.id) %></td>
          	    <td><%= product.unit_price.to_s(:delimited, delimiter: ',') %></td>
-         	    <td><%= product.products_type.type_name %></td>
+         	    <td><%= product.products_types.type_name %></td>
 
               <% if product.sales_status == "true" %>
                 <td>販売中</td>
