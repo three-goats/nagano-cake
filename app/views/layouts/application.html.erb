@@ -10,9 +10,6 @@
   </head>
 
   <body>
-
-    <!-- ヘッダーbyりのじ -->
-
       <header id="header">
 
         <!--  navbar-default 大事消せない-->
@@ -24,7 +21,11 @@
               </button>
               <!-- ここは右側のlogoの部分　　あとで外枠などを作る-->
               <!-- リンクもまだ作って無い -->
-              <a class="navbar-brand" href="#">LOGO</a>
+              <% if member_signed_in? %>
+                <a class="navbar-brand" href="/">LOGO</a>
+              <% else %>
+                <p class="navbar-brand" href="#">LOGO</p>
+              <% end %>
               <!--  -->
             </div>
 
@@ -35,90 +36,91 @@
 
                 <!-- ユーザーがログインしている時-->
                 <% if admin_signed_in? %>
-
                   <li>
-                    <%= link_to "商品一覧" %>
+                      <a >管理者: <%= current_admin.email %>さん</a>
                   </li>
-
                   <li>
-                    <%= link_to "会員一覧" %>
+                    <%= link_to "商品一覧", admins_products_path %>
+                  </li>
+                  <li>
+                    <%= link_to "会員一覧", admins_members_path %>
                     <!-- app詳細設計で記載した　admins/membersになっていない -->
                   </li>
-
                   <li>
-                    <%= link_to "注文履歴一覧" %>
+                    <%= link_to "注文履歴一覧", admins_orders_path %>
                     <!-- app詳細設計で記載した　admins/ordersになっていない -->
                   </li>
-
                   <li>
-                    <%= link_to "ジャンル一覧" %>
+                    <%= link_to "ジャンル一覧", admins_productstypes_path %>
                     <!-- app詳細設計で記載した　admins/productsになっていない -->
                   </li>
-
                   <li>
                     <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
                   </li>
-
 
                 <% else %>
                 <!-- ユーザがログインしていない時 -->
                 <!-- これはECサイトのログイン前のヘッダーと同じ -->
                   <% if member_signed_in? %>
                 <!-- members/ユーザーがログインしている時-->
+
+                    <% if current_member.member_status == true %>
+                    <!-- もしログインユーザのメンバーステータスがtureだったら -->
+                      <li>
+                        <%= link_to "About", members_homes_about_path %>
+                      </li>
+                      <li>
+                        <%= link_to "商品一覧", members_products_path %>
+                      </li>
+                      <li>
+                        <%= link_to "新規登録", new_member_registration_path %>
+                        <!-- 管理者側新規登録ページへ -->
+                      </li>
+                      <li>
+                        <%= link_to "ログイン", new_member_session_path %>
+                      </li>
+
+                    <% else %>
+                      <li>
+                        <a >ようこそ、<%= current_member.last_name %><%= current_member.first_name %>さん！</a>
+                      </li>
+                      <li>
+                        <%= link_to "マイページ", members_member_path(current_member) %>
+                        <!-- app詳細設計で記載した　admins/membersになっていない -->
+                      </li>
+                      <li>
+                        <%= link_to "商品一覧", members_products_path %>
+                      </li>
+                      <li>
+                        <%= link_to "カート", members_baskets_path %>
+                        <!-- app詳細設計で記載した　admins/ordersになっていない -->
+                      </li>
+                      <li>
+                        <%= link_to "ログアウト", destroy_member_session_path, method: :delete %>
+                      </li>
+
+                    <% end %>
+
+                  <% else %>
+                  <!-- members/ユーザがログインしていない時 -->
                     <li>
-                      <p>ようそこ、###さん！</p>
-                      <!-- レイアウト少しおかしいがこれでせ -->
+                      <%= link_to "About", members_homes_about_path %>
                     </li>
-
                     <li>
-                      <%= link_to "マイページ" %>
-                      <!-- app詳細設計で記載した　admins/membersになっていない -->
+                      <%= link_to "商品一覧", members_products_path %>
                     </li>
-
-                  <li>
-                    <%= link_to "商品一覧" %>
-                  </li>
-
-                  <li>
-                    <%= link_to "カート" %>
-                    <!-- app詳細設計で記載した　admins/ordersになっていない -->
-                  </li>
-
-                  <li>
-                    <%= link_to "ログアウト", destroy_member_session_path, method: :delete %>
-                  </li>
-
-                <% else %>
-                <!-- members/ユーザがログインしていない時 -->
-
-                  <li>
-                    <%= link_to "About" %>
-      <!-- ECサイトのaboutページへ　まだ作ってい無い -->
-
-                  </li>
-
-                  <li>
-                    <%= link_to "商品一覧" %>
-                  </li>
-
-                  <li>
-                    <%= link_to "新規登録" %>
-                    <!-- 管理者側新規登録ページへ -->
-                  </li>
-
-                  <li>
-                    <%= link_to "ログイン", new_member_session_path %>
-                  </li>
-
-                <% end %>
+                    <li>
+                      <%= link_to "新規登録", new_member_registration_path %>
+                      <!-- 管理者側新規登録ページへ -->
+                    </li>
+                    <li>
+                      <%= link_to "ログイン", new_member_session_path %>
+                    </li>
+                  <% end %>
                   <!--  -->
-
                 <% end %>
                 <!-- if文終わり -->
 
-<!-- こっからmembers -->
-
-                <!-- members/if文終わり -->
               </ul>
             </div>
             <!--  -->
@@ -127,9 +129,6 @@
         </nav>
 
       </header><!-- /header -->
-
-    <!-- ヘッダーbyりのじ -->
-
     <%= yield %>
   </body>
 </html>

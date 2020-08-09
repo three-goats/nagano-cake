@@ -1,122 +1,99 @@
 
 <div class="container">
-  
   <div class="row">
-    
-    
     <div class="col-md-10 col-md-offset-1">
-      
-      <h2>〜さんの会員詳細</h2>
+      <h3><%= @member.last_name %><%= @member.first_name %>さんの会員詳細</h3>
     </div>
+  </div>
 
+  <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      
       <h2></h2>
     </div>
+  </div>
 
+  <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      	<table>
+        <table>
+          <tbody>
+            <tr>
+              <th>顧客ID</th><th><span class="label label-info"><%= @member.member_status %>会員</span></th>
+            </tr>
+            <tr>
+              <th>
+                <h1>   </h1>
+              </th>
+            </tr>
+            <tr>
+            <!-- 2 -->
+              <th>氏名</th><th><%= @member.last_name %> <%= @member.first_name %></th>
+            </tr>
+            <tr>
+            <!-- 余白 -->
+              <th>
+                <h1>   </h1>
+              </th>
+            </tr>
+            <tr>
+              <th>フリガナ</th><th><%= @member.last_kana_name %> <%= @member.first_kana_name %></th>
+            </tr>
+            <tr>
+            <!-- 余白 -->
+              <th>
+                <h1>   </h1>
+              </th>
+            </tr>
+            <tr>
+              <th>郵便番号</th><th><%= @member.post_number %></th>
+            </tr>
+            <tr>
+            <!-- 余白 -->
+              <th>
+                <h1>   </h1>
+              </th>
+            </tr>
+            <tr>
+              <th>住所</th><th><%= @member.address %></th>
+            </tr>
+            <!-- 余白 -->
+              <th>
+                <h1>   </h1>
+              </th>
+            </tr>
+            <tr>
+              <th>電話番号</th><th><%= @member.telephone_number %></th>
+            </tr>
+            <!-- 余白 -->
+              <th>
+                <h1>   </h1>
+              </th>
+            </tr>
+            <tr>
+              <th>メールアドレス</th><th><%= @member.email %></th>
+            </tr>
+            <tr>
+            <!-- 余白 -->
+              <th>
+                <h1>   </h1>
+              </th>
+            </tr>
+            <tr>
+              <th>
+                <%= link_to "編集する", edit_admins_member_path(@member), class: "btn btn-primary" %>
+              </th>
 
-      		<thead>
-      			<tr>
-      			<!-- １行目 -->
-      				<th>顧客ID</th>
-      				<th>有効会員か</th>
-      			</tr>
+              <th>
+                <%= link_to "注文履歴一覧に戻る", admins_orders_path, class: "btn btn-primary col-md-offset-1"  %>
+              </th>
+            </tr>
+          </thead>
 
-      			<tr>
-      			<!-- 余白 -->
-      				<th>
-      					<h1>   </h1>
-      				</th>
-      			</tr>
-
-      			<tr>
-      			<!-- 2 -->
-      				<th>氏名</th>
-      				<th>山田 花子</th>
-      			</tr>
-
-      			<tr>
-      			<!-- 余白 -->
-      				<th>
-      					<h1>   </h1>
-      				</th>
-      			</tr>
-
-      			<tr>
-      			<!-- 3 -->
-      				<th>フリガナ</th>
-      				<th>ヤマダ ハナコ</th>
-      			</tr>
-
-      			<tr>
-      			<!-- 余白 -->
-      				<th>
-      					<h1>   </h1>
-      				</th>
-      			</tr>
-
-      			<tr>
-      				<th>郵便番号</th>
-      				<th>150041</th>
-      			</tr>
-
-      			<tr>
-      			<!-- 余白 -->
-      				<th>
-      					<h1>   </h1>
-      				</th>
-      			</tr>
-
-      			<tr>
-      				<th>住所</th>
-      				<th>東京都〜〜〜〜〜〜〜〜</th>
-      			</tr>
-
-      			<!-- 余白 -->
-      				<th>
-      					<h1>   </h1>
-      				</th>
-      			</tr>
-
-      			<tr>
-      				<th>電話番号</th>
-      				<th>03689763441</th>
-      			</tr>
-
-      			<!-- 余白 -->
-      				<th>
-      					<h1>   </h1>
-      				</th>
-      			</tr>
-
-      			<tr>
-      				<th>メールアドレス</th>
-      				<th>hoge@gmail.com</th>
-      			</tr>
-
-      			<tr>
-      			<!-- 余白 -->
-      				<th>
-      					<h1>   </h1>
-      				</th>
-      			</tr>
-
-      			<tr>
-      				<th>
-      					<%= link_to "編集する", class: "btn btn-primary" %>
-      				</th>
-
-      				<th>
-      					<%= link_to "注文履歴一覧に戻る", class: "btn btn-primary col-md-offset-1"  %>
-      				</th>
-      			</tr>
-      		</thead>
-
-      	</table>
+        </table>
     </div>
     <!-- col-md-6 -->
+
+  </div>
+    
   </div>
   <!-- row -->
 </div>

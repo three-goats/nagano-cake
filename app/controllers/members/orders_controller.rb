@@ -47,7 +47,6 @@ class Members::OrdersController < ApplicationController
     params.permit(:id, :payment_method, :post_address, :address, :full_name)
   end
     
-  
   def order_set
     params.require(:order).permit(:payment, :payment_method, :address, :post_address, :full_name)
   end

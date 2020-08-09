@@ -11,10 +11,10 @@
 		<div>
 			<%= f.label :type_name, "ジャンル" %>
 			<%= f.text_field :type_name %>
-		  <%= f.radio_button :type_status, :true, checked: true %>
-		  <%= f.label :type_status, "有効", {value: :true, style: "display: inline-block;"} %>
-		  <%= f.radio_button :type_status, :false %>
-		  <%= f.label :type_status, "無効", {value: :false, style: "display: inline-block;"} %>
+			<%= f.radio_button :type_status, :true, checked: true %>
+			<%= f.label :type_status, "有効", {value: :true, style: "display: inline-block;"} %>
+			<%= f.radio_button :type_status, :false %>
+			<%= f.label :type_status, "無効", {value: :false, style: "display: inline-block;"} %>
 			<%= f.submit '追加' %>
 		</div>
 	<% end %>
