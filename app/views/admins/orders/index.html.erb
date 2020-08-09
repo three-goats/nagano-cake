@@ -1,34 +1,37 @@
 <div class=“container”>
   <div class=“row”>
-    <div class=“col-md-6 col-md-offset-1”>
-     <!-- rowの一行目として位置を設定している -->
-      <h4>注文履歴一覧</h4>
+    <div class="col-md-6 col-md-offset-1">
+      <h4><strong>注文履歴一覧</strong></h4>
     </div>
-	</div>
-    <!-- col-md-6 -->
+  </div>
+
+	<div class="row">
     <div class="col-md-6 col-md-offset-2">
-      <div>
-      	<table class=“table”>
-      		<!-- <caption>table title and/or explanatory text</caption> -->
-      		<thead>
-      			<tr class=“active”>
-      				<th>購入日時</th>
-      				<th>購入者</th>
-      				<th>注文個数</th>
-      				<th>注文ステータス</th>
-      			</tr>
-      		</thead>
-      		<tbody>
-      			<tr>
-      				<td>time</td>
-      				<td>user</td>
-      				<td>num</td>
-      				<td>status</td>
-      			</tr>
-      		</tbody>
-      	</table>
-      </div>
+      <table class="table">
+        <caption>まだECサイトの注文自体が完成していないので仮の形です</caption>
+        <caption>後でページング機能も実装します</caption>
+        <thead>
+          <tr class="active">
+            <th>購入日時</th>
+            <th>購入者</th>
+            <th>注文個数</th>
+            <th>注文ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @order %></td>
+            <td><%= @order %></td>
+            <td><%= @order %></td>
+            <td><%= @order %></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+    <!-- col -->
   </div>
   <!-- row -->
+    
 </div>
 <!-- container -->
