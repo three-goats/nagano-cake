@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_08_09_030601) do
     t.string "post_number"
     t.string "telephone_number"
     t.string "address"
-    t.boolean "member_status"
+    t.boolean "member_status", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_members_on_email", unique: true

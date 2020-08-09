@@ -27,11 +27,15 @@
                 <td><%= member.id  %></td>
                 <td><%= member.last_name %><%= member.first_name %></td>
                 <td><%= member.email %></td>
-                <td><%= member.member_status %></td>
+                <% if member.member_status == false %>
+                  <td>有効</td>
+                <% else %>
+                  <td>退会済</td>
+                <% end %>
               </tr>
             <% end %>
             <!-- each -->
-            <%= paginate @members %>
+            <td><%= paginate @members %></td>
             <!-- ページング機能 -->
           </tbody>
         </table>

@@ -2,7 +2,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-10 col-md-offset-1">
-      <h3><%= @member.last_name %><%= @member.first_name %>さんの会員詳細</h3>
+      <h4><strong><%= @member.last_name %><%= @member.first_name %>さんの会員詳細</strong></h4>
     </div>
   </div>
 
@@ -13,12 +13,23 @@
   </div>
 
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">
+    <div class="col-md-10">
         <table>
           <tbody>
             <tr>
-              <th>顧客ID</th><th><span class="label label-info"><%= @member.member_status %></span></th>
+              <th>顧客ID</th>
+              <td>
+                <%= @member.id %>
+                <span class="label label-info">
+                  <% if @member.member_status == true %>
+                    退会済会員
+                  <% else %>
+                    有効会員
+                  <% end %>
+                </span>
+              </td>
             </tr>
+
             <tr>
               <th>
                 <h1>   </h1>
@@ -26,7 +37,7 @@
             </tr>
             <tr>
             <!-- 2 -->
-              <th>氏名</th><th><%= @member.last_name %> <%= @member.first_name %></th>
+              <th>氏名</th><td><%= @member.last_name %> <%= @member.first_name %></td>
             </tr>
             <tr>
             <!-- 余白 -->
@@ -35,7 +46,7 @@
               </th>
             </tr>
             <tr>
-              <th>フリガナ</th><th><%= @member.last_kana_name %> <%= @member.first_kana_name %></th>
+              <th>フリガナ</th><td><%= @member.last_kana_name %> <%= @member.first_kana_name %></td>
             </tr>
             <tr>
             <!-- 余白 -->
@@ -44,7 +55,7 @@
               </th>
             </tr>
             <tr>
-              <th>郵便番号</th><th><%= @member.post_number %></th>
+              <th>郵便番号</th><td><%= @member.post_number %></td>
             </tr>
             <tr>
             <!-- 余白 -->
@@ -53,7 +64,7 @@
               </th>
             </tr>
             <tr>
-              <th>住所</th><th><%= @member.address %></th>
+              <th>住所</th><td><%= @member.address %></td>
             </tr>
             <!-- 余白 -->
               <th>
@@ -61,7 +72,7 @@
               </th>
             </tr>
             <tr>
-              <th>電話番号</th><th><%= @member.telephone_number %></th>
+              <th>電話番号</th><td><%= @member.telephone_number %></td>
             </tr>
             <!-- 余白 -->
               <th>
@@ -69,7 +80,7 @@
               </th>
             </tr>
             <tr>
-              <th>メールアドレス</th><th><%= @member.email %></th>
+              <th>メールアドレス</th><td><%= @member.email %></td>
             </tr>
             <tr>
             <!-- 余白 -->

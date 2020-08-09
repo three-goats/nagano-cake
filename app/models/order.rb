@@ -1,4 +1,7 @@
 class Order < ApplicationRecord
+
+	belongs_to :destination
+	
 	enum order_status:{
 		入金待ち: 0,
 		入金確認: 1,

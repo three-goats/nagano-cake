@@ -1,6 +1,7 @@
 class Admins::ProductsController < ApplicationController
   def index
-  	@products = Product.all
+  	@products = Product.page(params[:page])
+    # ページング機能を実装させました。1page10件表示します。
   end
 
   def new
