@@ -35,7 +35,7 @@
   	   	  <%= f.submit "変更", class: "btn btn-primary" %>
   	   	 <% end %>
   	   	<td>
-  	   	 <%= basket_product.product.tax_price%>
+  	   	 <%= basket_product.sub_total %>
   	   	</td>
   	   	<td>
   	   	 <%= link_to "削除する", members_basket_product_path(basket_product.id), method: :delete, class: "btn btn-danger" %>
