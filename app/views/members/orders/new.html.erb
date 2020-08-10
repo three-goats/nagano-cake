@@ -9,13 +9,13 @@
 				<tr>
 					<td>
 						<%= form.radio_button :payment_method, :true, checked: true %>
-						<%= form.label :payment_method, "クレジットカード", {value: :true, style: "display: inline-block;"} %>
+						<%= form.label :payment_method, "クレジットカード",  style: "display: inline-block;" %>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<%= form.radio_button :payment_method, :false %>
-						<%= form.label :payment_method, "銀行振込", {value: :false, style: "display: inline-block;"} %>
+						<%= form.label :payment_method, "銀行振込", style: "display: inline-block;" %>
 					</td>
 				</tr>
 			</tbody>
