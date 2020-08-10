@@ -24,6 +24,7 @@ class Members::MembersController < ApplicationController
   def destroy_update
     member = Member.find(current_member.id)
     member.update(member_status: true)
+    reset_session
     redirect_to root_path
   end
 
