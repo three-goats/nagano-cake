@@ -1,5 +1,6 @@
 class Members::OrdersController < ApplicationController
   def index
+    @order = Order.all
   end
 
   def show
@@ -12,15 +13,27 @@ class Members::OrdersController < ApplicationController
   end
 
   def create
-    @order = current_member.orders.build(order_set)
-    if @order.save
-      redirect_to success_orders_path
+    @order = Order.new(order_set)
+    if @order.save!
+      current_member.basket_products.each do |basket|
+
+        @order_products = OrderProduct.new(
+          product_id: basket.product.id,
+          quantity_purchased: basket.quantity,
+          order_id: @order.id)
+        
+        @order_products.save!
+      end
     end
+    redirect_to members_success_path
   end
 
   def confirm
-    @order = Order.new(order_params)
+    @price_array = []
+    @total_array = []
+    @order = Order.new
     @user = Member.find(current_member.id)
+
     if params[:address_option] == "0"
       @post = @user.post_number
       @address = @user.address
@@ -33,9 +46,9 @@ class Members::OrdersController < ApplicationController
     elsif params[:address_option] == "2"
       @new_destination = Destination.new(dest_params)
       @new_destination.save
-      @post = @order.post_address
-      @address = @order.address
-      @name = @order.full_name
+      @post = @new_destination.post_address
+      @address = @new_destination.address
+      @name = @new_destination.full_name
     end
   end
 
@@ -43,12 +56,8 @@ class Members::OrdersController < ApplicationController
   end
 
   private
-  def order_params
-    params.permit(:id, :payment_method, :post_address, :address, :full_name)
-  end
-    
   def order_set
-    params.require(:order).permit(:payment, :payment_method, :address, :post_address, :full_name)
+    params.require(:order).permit(:request_amount, :payment_method, :address, :post_address, :full_name)
   end
 
   def dest_set
