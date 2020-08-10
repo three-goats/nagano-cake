@@ -28,11 +28,11 @@
 		</tr>
 		<tr>
 			<td>商品合計</td>
-			<td><%= @total_array.sum - 800 %></td>
+			<td><%= @total_array.sum %></td>
 		</tr>
 		<tr>
 			<td>請求金額</td>
-			<td><%= @total_array.sum %></td>
+			<td><%= @total_array.sum + 800 %></td>
 		</tr>
 	</table>
 </div>
@@ -41,7 +41,7 @@
 		<tr>
 			<td>支払い方法</td>
 			<td>
-				<% if @order.payment_method == "true" %>
+				<%if @order.payment_method == true %>
 					クレジットカード
 				<% else %>
 					銀行振込
@@ -63,6 +63,7 @@
 		<%= f.hidden_field :address, value: @address %>
 		<%= f.hidden_field :full_name, value: @name %>
 		<%= f.hidden_field :request_amount, value: @total_array.sum %>
+		<%= f.hidden_field :member_id, value: current_member.id %>
 		<%= f.submit "購入を確定する", class: "btn btn-success" %>
 	<% end %>
 </div>

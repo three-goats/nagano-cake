@@ -3,7 +3,7 @@ class Order < ApplicationRecord
 	belongs_to :member, optional: true
 	has_many :order_products, dependent: :destroy
 	
-	enum order_status:{
+	enum order_status: {
 		入金待ち: 0,
 		入金確認: 1,
 		制作中: 2,

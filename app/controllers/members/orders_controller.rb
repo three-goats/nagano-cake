@@ -4,6 +4,7 @@ class Members::OrdersController < ApplicationController
   end
 
   def show
+    @order = Order.find(params[:id])
   end
 
   def new
@@ -16,10 +17,11 @@ class Members::OrdersController < ApplicationController
     @order = Order.new(order_set)
     if @order.save!
       current_member.basket_products.each do |basket|
-
+        @price = basket.product.unit_price * basket.quantity
         @order_products = OrderProduct.new(
           product_id: basket.product.id,
           quantity_purchased: basket.quantity,
+          price_at_purchase: @price,
           order_id: @order.id)
         
         @order_products.save!
@@ -32,6 +34,11 @@ class Members::OrdersController < ApplicationController
     @price_array = []
     @total_array = []
     @order = Order.new
+    if params[:payment_method] == 'true'
+      @order.payment_method = true
+    else
+      @order.payment_method = false
+    end
     @user = Member.find(current_member.id)
 
     if params[:address_option] == "0"
@@ -57,7 +64,7 @@ class Members::OrdersController < ApplicationController
 
   private
   def order_set
-    params.require(:order).permit(:request_amount, :payment_method, :address, :post_address, :full_name)
+    params.require(:order).permit(:member_id, :request_amount, :payment_method, :address, :post_address, :full_name)
   end
 
   def dest_set
