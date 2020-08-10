@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
 
-	belongs_to :destination
+	belongs_to :member, optional: true
+	has_many :order_products, dependent: :destroy
 	
 	enum order_status:{
 		入金待ち: 0,
@@ -9,6 +10,4 @@ class Order < ApplicationRecord
 		発送準備中: 3,
 		発送済み: 4
 	}
-
-	has_many :order_products
 end
