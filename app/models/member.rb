@@ -4,9 +4,6 @@ class Member < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  def active_for_authentication?
-  		super && (self.member_status == true)
-  end
 
   has_many :basket_products, dependent: :destroy
   has_many :orders, dependent: :destroy
