@@ -75,7 +75,7 @@
 					<% @order.order_products.each do |pro| %>
 						<tr>
 							<td><%= pro.product.name %></td>
-							<td><%= (pro.product.unit_price * 1.1).to_s(:delimited, delimiter: ',') %></td>
+							<td><%= (pro.product.unit_price * 1.1).round.to_s(:delimited, delimiter: ',') %></td>
 							<td><%= pro.quantity_purchased %></td>
 							<td><%= (pro.product.unit_price * pro.quantity_purchased * 1.1).round.to_s(:delimited, delimiter: ',') %></td>
 							<%= form_for(pro,url: admins_order_product_path(pro.id)) do |f| %>
