@@ -4,7 +4,7 @@ class Admins::OrdersController < ApplicationController
   end
 
   def index
-  	@order = Order.all
+  	@order = Order.page(params[:page])
   end
 
   def show
