@@ -22,10 +22,10 @@
 					</td>
 					<td>
 						<% order.order_products.each do |order_product| %>
-							<%= order_product.product.name %>
+							<%= "#{order_product.product.name}," %>
 						<% end %>
 					</td>
-					<td><%= order.request_amount %></td>
+					<td><%= (order.request_amount * 1.1).round.to_s(:delimited, delimiter: ',') %>円</td>
 					<td><%= order.order_status %></td>
 					<td><%= link_to "表示する", members_order_path(order.id), class: "btn btn-primary" %></td>
 				</tr>
