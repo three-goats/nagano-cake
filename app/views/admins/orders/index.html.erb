@@ -6,10 +6,8 @@
   </div>
 
 	<div class="row">
-    <div class="col-md-6 col-md-offset-2">
+    <div class="col-md-8 col-md-offset-2">
       <table class="table">
-        <caption>まだECサイトの注文自体が完成していないので仮の形です</caption>
-        <caption>後でページング機能も実装します</caption>
         <thead>
           <tr class="active">
             <th>購入日時</th>
@@ -27,6 +25,7 @@
               <td><%= order.order_status %></td>
             </tr>
           <% end %>
+          <%= paginate @order %>
         </tbody>
       </table>
 
