@@ -22,6 +22,7 @@ class Members::SessionsController < Devise::SessionsController
           end
       else
           flash[:error] = "必須項目を入力してください。"
+          redirect_to new_member_session_path
       end
    end
 
