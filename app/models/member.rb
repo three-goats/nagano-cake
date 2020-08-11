@@ -5,6 +5,7 @@ class Member < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
 
+
   has_many :basket_products, dependent: :destroy
   has_many :orders, dependent: :destroy
 end
