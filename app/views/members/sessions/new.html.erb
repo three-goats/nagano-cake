@@ -5,6 +5,8 @@
     <div class="col-md-6">
       <% if flash[:error] %>
         <%= flash[:error] %>
+      <% elsif flash.now[:error] %>
+        <%= flash[:error] %>
       <% end %>
     </div>
   </div>
