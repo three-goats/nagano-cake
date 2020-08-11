@@ -4,19 +4,29 @@
 	<table>
 		<tr>
 			<td>注文日</td>
-			<td></td>
+			<td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
 		</tr>
 		<tr>
 			<td>配送先</td>
-			<td></td>
+			<td>
+				<%= @order.post_address %><br>
+				<%= @order.address %><br>
+				<%= @order.full_name %>
+			</td>
 		</tr>
 		<tr>
 			<td>支払方法</td>
-			<td></td>
+			<td>
+				<%if @order.payment_method == true %>
+					クレジットカード
+				<% else %>
+					銀行振込
+				<% end %>
+			</td>
 		</tr>
 		<tr>
 			<td>ステータス</td>
-			<td></td>
+			<td><%= @order.order_status %></td>
 		</tr>
 	</table>
 
@@ -24,15 +34,15 @@
 	<table>
 		<tr>
 			<td>商品合計</td>
-			<td></td>
+			<td><%= @order.order_products.sum(:price_at_purchase).to_s(:delimited, delimiter: ',') %>円</td>
 		</tr>
 		<tr>
 			<td>配送料</td>
-			<td></td>
+			<td>800円</td>
 		</tr>
 		<tr>
 			<td>ご請求額</td>
-			<td></td>
+			<td><%= (@order.order_products.sum(:price_at_purchase) + 800).to_s(:delimited, delimiter: ',') %></td>
 		</tr>
 	</table>
 
@@ -47,9 +57,14 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td></td>
-			</tr>
+			<% @order.order_products.each do |pro| %>
+				<tr>
+					<td><%= pro.product.name %></td>
+					<td><%= pro.product.unit_price %></td>
+					<td><%= pro.quantity_purchased %></td>
+					<td><%= pro.price_at_purchase%></td>
+				</tr>
+			<% end %>
 		</tbody>
 	</table>
 </div>

@@ -19,7 +19,6 @@ class Members::MembersController < ApplicationController
 
   def leave
     @member = Member.find(current_member.id)
-    # ログアウトの処理も行います
   end
 
   def destroy_update
