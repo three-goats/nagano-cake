@@ -1,5 +1,6 @@
 class Admins::OrdersController < ApplicationController
   def top
+    @order = Order.all
   end
 
   def index

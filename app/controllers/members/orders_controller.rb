@@ -53,10 +53,16 @@ class Members::OrdersController < ApplicationController
       @name = @destination.full_name
     elsif params[:address_option] == "2"
       @new_destination = Destination.new(dest_params)
-      @new_destination.save
       @post = @new_destination.post_address
       @address = @new_destination.address
       @name = @new_destination.full_name
+
+      @destination = Destination.new(
+        member_id: current_member.id,
+        address: @post,
+        post_address: @address,
+        full_name: @name)
+      @destination.save!
     end
   end
 
@@ -73,6 +79,6 @@ class Members::OrdersController < ApplicationController
   end
 
   def dest_params
-    params.permit(:id, :post_address, :address, :full_name)
+    params.permit(:member_id, :address, :post_address, :full_name)
   end
 end
