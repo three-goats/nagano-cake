@@ -13,6 +13,11 @@ class Admins::OrdersController < ApplicationController
   def update
   	@order = Order.find(params[:id])
   	@order.update(order_params)
+    if @order.order_status == "入金確認"
+      @order.order_products.each do |op|
+        op.update(production_status: 1)
+      end
+    end
    	redirect_to admins_order_path(@order.id)
   end
 
