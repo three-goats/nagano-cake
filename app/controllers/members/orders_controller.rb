@@ -26,6 +26,7 @@ class Members::OrdersController < ApplicationController
         
         @order_products.save!
       end
+      current_member.basket_products.destroy_all
     end
     redirect_to members_success_path
   end

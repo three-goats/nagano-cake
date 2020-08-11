@@ -9,10 +9,6 @@ class Members::BasketProductsController < ApplicationController
   	@basket_product.member_id = current_member.id
   	@basket_product.save
   	  redirect_to members_basket_products_path, success: "商品をカートに追加しました。"
-  	# else
-  	#   @product = Product.find(@basket_product.products_id)
-  	#   render 'member/products/show'
-  	#  end
   end
 
   def update
