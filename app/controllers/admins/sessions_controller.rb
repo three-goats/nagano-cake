@@ -5,12 +5,7 @@ class Admins::SessionsController < Devise::SessionsController
 
   # GET /resource/sign_in
   # def new
-        if current_member.member_status != true
-          # true 退会ずみ
-          super
-        else
-          render "members/sessions/new"
-        end
+  #   super
   # end
 
   # POST /resource/sign_in
